@@ -6,6 +6,7 @@ import 'audio_player.dart';
 import '../contract_typeSelection.dart';
 import '../profiling_module/userProfile_page.dart';
 import '../profiling_module/utils.dart';
+import 'sign_contract.dart';
 
 class CreateContract extends StatefulWidget {
   static const String id = "create_contract_page";
@@ -31,8 +32,12 @@ class _CreateContractState extends State<CreateContract> {
     Navigator.pushNamed(context, UserProfile.id);
   }
 
-  void navToContractTypeSelection() {
-    Navigator.pushNamed(context, ContractTypeSelection.id);
+  // void navToContractTypeSelection() {
+  //   Navigator.pushNamed(context, ContractTypeSelection.id);
+  // }
+
+  void navToSignContract() {
+    Navigator.pushNamed(context, SignContract.id);
   }
 
   void navBackToDashboard() {
@@ -108,7 +113,7 @@ class _CreateContractState extends State<CreateContract> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(30*fem, 35*fem, 30*fem, 35*fem),
+        padding: EdgeInsets.fromLTRB(30*fem, 30*fem, 30*fem, 35*fem),
         width: double.infinity,
         color: Color(0xff000000),
         child: Column(
@@ -271,7 +276,8 @@ class _CreateContractState extends State<CreateContract> {
               // },
             ),),
             GestureDetector(
-              onTap: navToContractTypeSelection,
+              // onTap: navToContractTypeSelection,
+              onTap: navToSignContract,
               child: Container(
                 // component77M2p (209:159)
                 margin: EdgeInsets.fromLTRB(45*fem, 0*fem, 45*fem, 5*fem),

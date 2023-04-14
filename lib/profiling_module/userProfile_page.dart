@@ -110,37 +110,6 @@ class _UserProfileState extends State<UserProfile> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // Container(
-                //   padding: EdgeInsets.fromLTRB(29*fem, 30*fem, 211*fem, 0*fem),
-                //   width: double.infinity,
-                //   child: Row(
-                //     crossAxisAlignment: CrossAxisAlignment.end,
-                //     children: [
-                //       Container(
-                //         // vectorwnG (110:124)
-                //         margin: EdgeInsets.fromLTRB(0*fem, 0*fem, 27*fem, 8*fem),
-                //         width: 20*fem,
-                //         height: 19*fem,
-                //         child: Image.asset(
-                //           'assets/page-1/images/vector-zoa.png',
-                //           width: 20*fem,
-                //           height: 19*fem,
-                //         ),
-                //       ),
-                //       Text(
-                //         // profilegE4 (110:120)
-                //         'Profile',
-                //         style: SafeGoogleFont (
-                //           'Poppins',
-                //           fontSize: 24*ffem,
-                //           fontWeight: FontWeight.w400,
-                //           height: 1.5*ffem/fem,
-                //           color: Color(0xffffffff),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
                 Container(
                   margin: EdgeInsets.fromLTRB(38*ffem, 30*ffem, 38*ffem, 30*ffem),
                   width: double.infinity,

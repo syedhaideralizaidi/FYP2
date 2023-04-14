@@ -17,6 +17,8 @@ import '../contract_creation_module/audio_player.dart';
 // Package imports:
 import 'package:zego_uikit_prebuilt_call/zego_uikit_prebuilt_call.dart';
 import 'package:zego_uikit_signaling_plugin/zego_uikit_signaling_plugin.dart';
+import '../profiling_module/userProfile_page.dart';
+import '../profiling_module/utils.dart';
 import 'audio_recorder.dart';
 // import 'dummy.dart';
 import '../trash/show_audio.dart';
@@ -279,32 +281,137 @@ class _CallInvitationPageState extends State<CallInvitationPage> {
     );
   }
 
+  void navToUserProfile() {
+    Navigator.pushNamed(context, UserProfile.id);
+  }
+
   Widget yourPage(BuildContext context) {
-    return GestureDetector(
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.grey,
-          body: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              // Text('Your userID: $localUserID'),
-              Text('Your userID:${widget.yourUserID}'),
-              Text(widget.otherPersonNumber),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(width: 10),
-                  // Container(
-                  //   width: 150, // or any fixed width
-                  //   height: 100, // or any fixed height
-                  //   child: inviteeUserIDInput(),
-                  // ),
-                  const SizedBox(height: 5),
-                  callButton(false),
-                ],
+    double baseWidth = 360;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Voice Call'),
+        backgroundColor: Colors.black,
+        leading: Container(
+          // vectorA9n (204:122)
+          margin: EdgeInsets.fromLTRB(15*fem, 0*fem, 0*fem, 0*fem),
+          width: 25*fem,
+          height: 25*fem,
+          child: Image.asset(
+            'assets/page-1/images/arroww.png',
+            width: 25*fem,
+            height: 25*fem,
+          ),
+        ),
+        actions: [
+          Container(
+            // component75hFn (208:127)
+            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 25 * fem, 0 * fem),
+            padding:
+            EdgeInsets.fromLTRB(15 * fem, 15 * fem, 15 * fem, 15 * fem),
+            height: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(color: Color(0xffffffff)),
+              borderRadius: BorderRadius.circular(100 * fem),
+              gradient: LinearGradient(
+                begin: Alignment(0, -1),
+                end: Alignment(0, 1),
+                colors: <Color>[Color(0xff1b1a1a), Color(0x00d9d9d9)],
+                stops: <double>[0, 1],
               ),
-            ],
+            ),
+            child: Center(
+              // groupxSc (I208:127;141:269)
+              child: SizedBox(
+                width: 18.53 * fem,
+                height: 21.61 * fem,
+                child: GestureDetector(
+                  onTap: navToUserProfile,
+                  child: Image.asset(
+                    'assets/page-1/images/group-cyv.png',
+                    width: 18.53 * fem,
+                    height: 21.61 * fem,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: SafeArea(
+          child: Scaffold(
+            backgroundColor: Colors.black,
+            body: Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 10.0*fem,horizontal: 20.0*fem),
+                child: Container(
+                  height: 250*fem,
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade700,
+                    borderRadius: BorderRadius.circular(20*fem),
+                    border: Border.all(color: Color(0xff156f1e)),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('My Number:'),
+                      SizedBox(height: 10.0,),
+                      FittedBox(
+                        child: Text(
+                          widget.yourUserID,
+                          style: SafeGoogleFont (
+                            'Poppins',
+                            fontSize: 18*ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1*ffem/fem,
+                            color: Color(0xff2b2b2b),
+                          ),
+
+                        ),
+                      ),
+                      Container(
+                        // line21SeU (204:80)
+                        margin: EdgeInsets.fromLTRB(40*fem, 0*fem, 40*fem, 5*fem),
+                        height: 3*fem,
+                        color: Color(0xff555558),
+
+                      ),
+                      SizedBox(height: 20.0,),
+                      Text("Other Person's Number:"),
+                      SizedBox(height: 10.0,),
+                      FittedBox(
+                        child: Text(
+                          widget.otherPersonNumber,
+                          style: SafeGoogleFont (
+                            'Poppins',
+                            fontSize: 18*ffem,
+                            fontWeight: FontWeight.w400,
+                            height: 1*ffem/fem,
+                            color: Color(0xff2b2b2b),
+                          ),
+
+                        ),
+                      ),
+                      Container(
+                        // line21SeU (204:80)
+                        margin: EdgeInsets.fromLTRB(40*fem, 0*fem, 40*fem, 5*fem),
+                        height: 3*fem,
+                        color: Color(0xff555558),
+
+                      ),
+                      SizedBox(height: 20.0,),
+                      callButton(false),
+                    ],
+                  ),
+                )
+              ),
+            ),
           ),
         ),
       ),
@@ -374,8 +481,8 @@ class _CallInvitationPageState extends State<CallInvitationPage> {
         return ZegoStartCallInvitationButton(
           isVideoCall: isVideoCall,
           invitees: invitees,
-          iconSize: const Size(40, 40),
-          buttonSize: const Size(50, 50),
+          iconSize: const Size(50, 50),
+          buttonSize: const Size(60, 60),
           onPressed: (String code, String message, List<String> errorInvitees) {
 
             _start();

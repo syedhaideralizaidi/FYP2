@@ -1,10 +1,10 @@
-import 'package:firebae_reg_auth/dashboardScreen.dart';
+import 'package:firebae_reg_auth/trash/dashboardScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'contact_module/dashboard_page.dart';
 import 'firebase_options.dart';
-import 'dashboardScreen.dart';
+import 'trash/dashboardScreen.dart';
 import 'main.dart';
 import 'register.dart';
 

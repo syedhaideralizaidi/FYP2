@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../call_module/callPage.dart';
 import '../profiling_module/userProfile_page.dart';
+import 'contract_request_page.dart';
 import 'contractRenewal.dart';
 import 'gallery.dart';
 
@@ -97,6 +98,10 @@ class _DashboardPageState extends State<DashboardPage> {
     Navigator.pushNamed(context, ContractRenewal.id);
   }
 
+  void navToContractRequest() {
+    Navigator.pushNamed(context, ContractRequest.id);
+  }
+
   void navToGallery() {
     Navigator.pushNamed(context, Gallery.id);
   }
@@ -126,7 +131,7 @@ class _DashboardPageState extends State<DashboardPage> {
         actions: [
           Container(
             // component75hFn (208:127)
-            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 15 * fem, 0 * fem),
+            margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 25 * fem, 0 * fem),
             padding:
                 EdgeInsets.fromLTRB(15 * fem, 15 * fem, 15 * fem, 15 * fem),
             height: double.infinity,
@@ -237,7 +242,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         Expanded(
                           flex: 2,
                           child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {navToContractRequest();},
                             icon: const Icon(
                               Icons.request_quote,
                               size: 30,
@@ -248,13 +253,16 @@ class _DashboardPageState extends State<DashboardPage> {
                           width: 2,
                           color: Colors.white,
                         ),
-                        const Expanded(
+                        Expanded(
                           flex: 3,
                           child: Padding(
                             padding: EdgeInsets.symmetric(horizontal: 10.0),
-                            child: Text(
-                              'Contract Request',
-                              style: TextStyle(color: Colors.white),
+                            child: GestureDetector(
+                              onTap: navToContractRequest,
+                              child: Text(
+                                'Contract Request',
+                                style: TextStyle(color: Colors.white),
+                              ),
                             ),
                           ),
                         )

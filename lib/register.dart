@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'contact_module/dashboard_page.dart';
-import 'dashboardScreen.dart';
+import 'trash/dashboardScreen.dart';
 import 'loginScreen.dart';
 
 class Register extends StatefulWidget {

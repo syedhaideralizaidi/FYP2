@@ -1,9 +1,11 @@
+import 'package:firebae_reg_auth/contract_creation_module/sign_contract.dart';
 import 'package:flutter/material.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'contact_module/contract_request_page.dart';
 import 'contact_module/contractRenewal.dart';
 import 'contact_module/dashboard_page.dart';
 import 'contact_module/gallery.dart';
@@ -13,15 +15,15 @@ import 'firebase_options.dart';
 import 'loginScreen.dart';
 import 'profiling_module/userProfile_page.dart';
 import 'register.dart';
-import 'dashboardScreen.dart';
+import 'trash/dashboardScreen.dart';
 import 'trash/userProfile.dart';
 import 'trash/gallery.dart';
-import 'contract.dart';
-import 'Contacts.dart';
+import 'contract_module/contract.dart';
+import 'trash/Contacts.dart';
 import 'contract_typeSelection.dart';
 import 'call_module/callPage.dart';
 import 'previewContract.dart';
-import 'contractRequest.dart';
+import 'trash/contractRequest.dart';
 import 'createContact.dart';
 
 void main() async {
@@ -55,7 +57,8 @@ class _MainState extends State<Main> {
         UserProfile.id: (context) => UserProfile(),
         Gallery.id: (context) => Gallery(),
         Contract.id: (context) => Contract(),
-        Contacts.id: (context) => Contacts(),
+        SignContract.id: (context) => SignContract(),
+        // Contacts.id: (context) => Contacts(),
         CallInvitationPage.id : (context) => CallInvitationPage(recordingOn: false, otherPersonNumber: '03333333333', yourUserID: '02222222222',),
         CreateContact.id: (context) => CreateContact(),
         ContractRequest.id: (context) => ContractRequest(),
