@@ -115,6 +115,7 @@ import spacy
 import string
 import tempfile
 import subprocess
+import numba
 
 def filter_type(doc):
     entities = [ent for ent in doc.ents if ent.label_ == "TYPE"]
@@ -147,6 +148,10 @@ app = Flask(__name__)
 def hello():
     print("Hellooo")
     return "Hello World"
+
+@numba.jit(nopython=True)
+def foo():
+  return 1
 
 @app.route('/transcribe', methods=['POST'])
 def transcribe_audio():
